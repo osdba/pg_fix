@@ -13,6 +13,8 @@ osdba-mac:pg_fix osdba$ ./pg_fix show_tuple -f 16384
 
 ## Clean hint in tuple
 
+first show tuple in replation file 16384:
+
 ```
 osdba-mac:pg_fix osdba$ ./pg_fix show_tuple -f 16384
  lp   off  flags lp_len    xmin       xmax      field3   blkid posid infomask infomask2 hoff     oid
@@ -23,6 +25,9 @@ osdba-mac:pg_fix osdba$ ./pg_fix show_tuple -f 16384
    4  8032     1     33       1002          0          0     0     4     2902      8002   24          0
 ```
 
+then clean hint then show tuple info, please notice "infomask" colume:
+
+```
 osdba-mac:pg_fix osdba$ ./pg_fix clean_tuple_hint -f 16384
 osdba-mac:pg_fix osdba$ ./pg_fix show_tuple -f 16384
  lp   off  flags lp_len    xmin       xmax      field3   blkid posid infomask infomask2 hoff     oid
